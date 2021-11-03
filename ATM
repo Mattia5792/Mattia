@@ -1,0 +1,84 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	int conto=6000;
+	int scelta;
+	int prelievo_versamento;
+	bool f=false;
+    string username;
+    string Pin;
+    
+    cout<<"-----------------"<<endl;
+    cout<<"--     ATM     --"<<endl;
+    cout<<"-----------------"<<endl;
+    
+    do
+    {
+    cout<<"_login_\n";
+    cout<<"Inserisci il tuo username (Mattia)\n";
+    cin>>username;
+    cout<<"Inserisci il tuo pin (22365)\n";
+    cin>>Pin;
+    
+    	if(username!="Mattia" && Pin!="22365")
+    	{
+    		f=false;//flag
+    		cout<<"Username o pin errato,riprovare\n";
+    	}
+    	else
+    	{
+    		f=true;
+		}	
+    }
+    while(f==false);
+	
+    do
+    {
+    	if(scelta < 0 or scelta > 2)//Se si sceglie un altro numero il programma darà un errore
+    	{
+			cout<<"Errore:scelta inesistente\n";
+        }
+    	cout<<"_Menu'_\n";
+    	cout<<"Inserisci 0 per uscire dal programma\n";
+    	cout<<"Inserisci 1 per prelevare\n";
+    	cout<<"Inserisci 2 per versare\n";
+    	cin>>scelta;
+    		
+    		switch(scelta)//Serve per delle scelte
+    		{
+    			case 0:
+    			f=true;
+    			cout<<"Arrivederci\n";
+    			break;
+    				
+    			case 1:
+    			cout<<"Quanti euro vuole prelevare?Ha "<<conto<<" euro nel conto e puo' prelevare massimo 250 euro al giorno\n";
+    			cin>>prelievo_versamento;
+    			if(prelievo_versamento>250)
+    			{
+    				f=false;
+    				cout<<"Non puo' prelevare piu' di 250 euro,riprovi per favore\n";
+				}
+				else
+				{
+					f=true;
+					cout<<"Ha prelevato "<<prelievo_versamento<<" le rimangono "<<conto-prelievo_versamento<<" euro,arrivederci\n";
+				}
+				break;
+				
+				case 2:
+				f=true;	
+				cout<<"Quanti euro vuole versare?\n";
+				cin>>prelievo_versamento;
+				cout<<"Ora nel conto ha "<<conto+prelievo_versamento<<" euro,arrivederci\n";	
+				break;
+			}
+	}
+	while(scelta < 0 or scelta>2 or f==false);
+	
+	system ("PAUSE");
+}
