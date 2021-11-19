@@ -13,9 +13,9 @@ int main()
 	string scelta;
 	float costo;
 	
-	cout<<"--------------------------------"<<endl;
-    cout<<"--     RAPISARDI AIRLINES     --"<<endl;
-    cout<<"--------------------------------"<<endl<<endl;
+cout<<"--------------------------------"<<endl;
+cout<<"--     RAPISARDI AIRLINES     --"<<endl;
+cout<<"--------------------------------"<<endl<<endl;
     
     cout<<"Benvenuto nel programma di prenotazione dell'agenzia di viaggi ''Rapisardi Airlines''\n";
     cout<<"Il piano tariffario per le destinazioni e' il seguente e le destinazioni dei viaggi sono:\n";
