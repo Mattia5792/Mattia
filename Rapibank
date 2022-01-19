@@ -1,0 +1,54 @@
+/*Implementare un programma che rappresenti un conto corrente bancario, il conto corrente in questione conserva i seguenti dati:
+Nome dell'intestatario, cognome, data di nascita, codice fiscale, totale sul conto, saldo sul conto, data di inizio del conto, e il nome della banca.
+Il conto ha le seguenti funzionalità:
+Visualizza conto, versa importo, preleva il conto.
+Il programma è dotato di un menù che consente all'utente di scegliere una delle precedenti opzioni*/
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string Datadinascita;
+string Nome;
+string Cognome;
+string Codicefiscale;
+int Saldo=50000;
+string Username;
+string Password;
+bool f=false;
+
+int main()
+{
+	cout<<"---------------------------------------------------------------------"<<endl;
+	cout<<"--                             RAPIBANK                            --"<<endl;
+	cout<<"---------------------------------------------------------------------"<<endl<<endl;
+	
+	cout<<"Benvenuto nel sito bancario ''RAPIBANK'', inserisca per favore le sue credenziali."<<endl;
+	cout<<"Nome:";
+	cin>>Nome;
+	cout<<"Cognome:";
+	cin>>Cognome;
+	cout<<"Data di nascita:";
+	cin>>Datadinascita;
+	cout<<"Codice fiscale:";
+	cin>>Codicefiscale;
+	cout<<"Inserisca username e password"<<endl;
+	do
+	{
+		cout<<"Username (Nome + gg)"<<endl;
+		cin>>Username;
+		cout<<"Password (Cognome + gg)"<<endl;
+		cin>>Password;
+		if (Username == Nome + "gg" && Password == Cognome + "gg")
+		{
+			cout<<"Benvenuto, cosa vuole fare?"<<endl;
+			f=true;
+		}
+		else
+		{
+			cout<<"Username o password errati, riprovare"<<endl;
+		}
+	}while(f == false);
+	cout<<"Nome:"<<Nome<<"                            Data di nascita:"<<Datadinascita<<endl;
+	cout<<"Cognome:"<<Cognome"                        Codice fiscale:"<<Codicefiscale<<endl;
+}
