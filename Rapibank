@@ -8,47 +8,104 @@ Il programma è dotato di un menù che consente all'utente di scegliere una dell
 
 using namespace std;
 
-string Datadinascita;
-string Nome;
-string Cognome;
-string Codicefiscale;
-int Saldo=50000;
+int Saldo = 50000;
 string Username;
 string Password;
-bool f=false;
+bool f = false;
+int Prelievo_versamento;
+int Scelta;
+int Prelevare_Versare (int a, int b, int c)
+{
+	int Risultato;
+	if (c == 1)
+	{
+		Risultato = a - b;
+	}
+	if (c == 2) 
+	{
+		Risultato = a + b;
+	}
+	return Risultato;
+}
 
 int main()
 {
-	cout<<"---------------------------------------------------------------------"<<endl;
-	cout<<"--                             RAPIBANK                            --"<<endl;
-	cout<<"---------------------------------------------------------------------"<<endl<<endl;
-	
-	cout<<"Benvenuto nel sito bancario ''RAPIBANK'', inserisca per favore le sue credenziali."<<endl;
-	cout<<"Nome:";
-	cin>>Nome;
-	cout<<"Cognome:";
-	cin>>Cognome;
-	cout<<"Data di nascita:";
-	cin>>Datadinascita;
-	cout<<"Codice fiscale:";
-	cin>>Codicefiscale;
-	cout<<"Inserisca username e password"<<endl;
+	cout << "---------------------------------------------------------------------" << endl;
+	cout << "--                             RAPIBANK                            --" << endl;
+	cout << "---------------------------------------------------------------------" << endl << endl;
+
+	cout << "Inserisca username e password" << endl;
 	do
 	{
-		cout<<"Username (Nome + gg)"<<endl;
-		cin>>Username;
-		cout<<"Password (Cognome + gg)"<<endl;
-		cin>>Password;
-		if (Username == Nome + "gg" && Password == Cognome + "gg")
+		cout << "Username (Mattia69)" << endl;
+		cin >> Username;
+		cout << "Password (Rapibank01)" << endl;
+		cin >> Password;
+		if (Username == "Mattia69" && Password == "Rapibank01")
 		{
-			cout<<"Benvenuto, cosa vuole fare?"<<endl;
-			f=true;
+			cout << "Benvenuto, cosa vuole fare?" << endl;
+			f = true;
 		}
 		else
 		{
-			cout<<"Username o password errati, riprovare"<<endl;
+			cout << "Username o password errati, riprovare" << endl;
 		}
-	}while(f == false);
-	cout<<"Nome:"<<Nome<<"                            Data di nascita:"<<Datadinascita<<endl;
-	cout<<"Cognome:"<<Cognome"                        Codice fiscale:"<<Codicefiscale<<endl;
+	} while (f == false);
+	if (f == true)
+	{
+		f = false;
+	}
+	cout << "Nome:Mattia                            Data di nascita:05/07/2005" <<endl;
+	cout << "Cognome:Drogo                          Codice fiscale:DRGMTT05678H229J" << endl;
+	cout << "                                       Data di inizio del conto:19/01/2022" << endl;
+	cout << "Benvenuto Mattia. Prema 0 per uscire, prema 1 per prelevare, prema 2 per versare, per visualizzare il saldo prema 3" << endl;
+	do
+	{
+		do
+		{
+			cin >> Scelta;
+			if (Scelta > 3 or Scelta < 0)
+			{
+				cout << "Errore, scelta non riconosciuta, riprovi." << endl;
+				cin >> Scelta;
+			}
+			else
+			{
+				f = true;
+			}
+		} while (f == false);
+		switch (Scelta)
+		{
+		case 0:
+			break;
+		case 1:
+			cout << "Quanto vuole prelevare? Ha un saldo di " << Saldo << " euro nel conto" << endl;
+			do
+			{
+				cin >> Prelievo_versamento;
+				if (Prelievo_versamento > Saldo)
+				{
+					cout << "Errore, non puo' prelevare piu' di quanto ha nel conto, riprovi." << endl;
+					f = false;
+				}
+				else
+				{
+					cout << "Ha prelevato " << Prelevare_Versare(Saldo, Prelievo_versamento, Scelta) << " euro" << endl;
+					f = true;
+				}
+			} while (f == false);
+			break;
+		case 2:
+			cout << "Quanto vuole versare? Ha un saldo di " << Saldo << " euro nel conto" << endl;
+			cin >> Prelievo_versamento;
+			cout << "Ora il suo saldo e' di " << Prelevare_Versare(Saldo, Prelievo_versamento, Scelta) << " euro" << endl;
+			break;
+		case 3:
+			cout << "Il suo saldo e' di " << Saldo << " euro, cosa vuole fare?" << endl;
+			f = false;
+			break;
+		}
+	} while (f == false);
+	cout << "Le auguriamo una buona giornata" << endl;
+	system ("PAUSE");
 }
