@@ -5,6 +5,7 @@ Visualizza conto, versa importo, preleva il conto.
 Il programma è dotato di un menù che consente all'utente di scegliere una delle precedenti opzioni*/
 #include <iostream>
 #include <string>
+#include <process.h>
 
 using namespace std;
 
@@ -27,7 +28,6 @@ int Prelevare_Versare (int a, int b, int c)
 	}
 	return Risultato;
 }
-
 int main()
 {
 	cout << "---------------------------------------------------------------------" << endl;
@@ -55,10 +55,11 @@ int main()
 	{
 		f = false;
 	}
-	cout << "Nome:Mattia                            Data di nascita:05/07/2005" <<endl;
+	system("cls");
+	cout << "Nome:Mattia                            Data di nascita:05/07/2005" << endl;
 	cout << "Cognome:Drogo                          Codice fiscale:DRGMTT05678H229J" << endl;
-	cout << "                                       Data di inizio del conto:19/01/2022" << endl;
-	cout << "Benvenuto Mattia. Prema 0 per uscire, prema 1 per prelevare, prema 2 per versare, per visualizzare il saldo prema 3" << endl;
+	cout << "Nome banca:Rapibank                    Data di inizio del conto:19/01/2022" << endl;
+	cout << "Benvenuto Mattia. Prema 0 per uscire, prema 1 per prelevare, prema 2 per versare, per visualizzare il saldo prema 3." << endl;
 	do
 	{
 		do
@@ -67,7 +68,6 @@ int main()
 			if (Scelta > 3 or Scelta < 0)
 			{
 				cout << "Errore, scelta non riconosciuta, riprovi." << endl;
-				cin >> Scelta;
 			}
 			else
 			{
@@ -76,36 +76,36 @@ int main()
 		} while (f == false);
 		switch (Scelta)
 		{
-		case 0:
-			break;
-		case 1:
-			cout << "Quanto vuole prelevare? Ha un saldo di " << Saldo << " euro nel conto" << endl;
-			do
-			{
+			case 0:
+				break;
+			case 1:
+				cout << "Quanto vuole prelevare? Ha un saldo di " << Saldo << " euro nel conto." << endl;
+				do
+				{
+					cin >> Prelievo_versamento;
+					if (Prelievo_versamento > Saldo)
+					{
+						cout << "Errore, non puo' prelevare piu' di quanto ha nel conto, riprovi." << endl;
+						f = false;
+					}
+					else
+					{
+						cout << "Ha prelevato " << Prelevare_Versare(Saldo, Prelievo_versamento, Scelta) << " euro." << endl;
+						f = true;
+					}
+				} while (f == false);
+				break;
+			case 2:
+				cout << "Quanto vuole versare? Ha un saldo di " << Saldo << " euro nel conto." << endl;
 				cin >> Prelievo_versamento;
-				if (Prelievo_versamento > Saldo)
-				{
-					cout << "Errore, non puo' prelevare piu' di quanto ha nel conto, riprovi." << endl;
-					f = false;
-				}
-				else
-				{
-					cout << "Ha prelevato " << Prelevare_Versare(Saldo, Prelievo_versamento, Scelta) << " euro" << endl;
-					f = true;
-				}
-			} while (f == false);
-			break;
-		case 2:
-			cout << "Quanto vuole versare? Ha un saldo di " << Saldo << " euro nel conto" << endl;
-			cin >> Prelievo_versamento;
-			cout << "Ora il suo saldo e' di " << Prelevare_Versare(Saldo, Prelievo_versamento, Scelta) << " euro" << endl;
-			break;
-		case 3:
-			cout << "Il suo saldo e' di " << Saldo << " euro, cosa vuole fare?" << endl;
-			f = false;
-			break;
+				cout << "Ora il suo saldo e' di " << Prelevare_Versare(Saldo, Prelievo_versamento, Scelta) << " euro." << endl;
+				break;
+			case 3:
+				cout << "Il suo saldo e' di " << Saldo << " euro, cosa vuole fare?" << endl;
+				f = false;
+				break;
 		}
-	} while (f == false);
-	cout << "Le auguriamo una buona giornata" << endl;
+		} while (f == false);
+	cout << "Le auguriamo una buona giornata." << endl;
 	system ("PAUSE");
 }
