@@ -1,0 +1,27 @@
+/*
+Scrivere un programma che riceve in input un numero intero  e stampa “pari” se  ∈ {0,2,4}, “dispari” se  ∈ {1,3,5}, altrimenti “altro”.
+*/ 
+#include <iostream>
+
+using namespace std;
+
+int numero;
+
+int main()
+{
+	cout << "Inserisci numero:";
+	cin >> numero;
+	if (numero % 2 == 0)
+	{
+		cout << "Pari" << endl;
+	}
+	if (numero % 2 != 0)
+	{
+		cout << "Dispari" << endl;
+	}
+	else
+	{
+		cout << "Altro" << endl;
+	}
+	system("PAUSE");
+}
