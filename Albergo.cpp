@@ -1,8 +1,8 @@
 /*In un albergo il prezzo della camera dipende dal piano in cui ci si trova secondo la seguente tabella.
-piano 1 € 35
-piano 2 € 45
-piano 3 € 55
-piano 4 € 65
+piano 1 â‚¬ 35
+piano 2 â‚¬ 45
+piano 3 â‚¬ 55
+piano 4 â‚¬ 65
 Calcola il prezzo del conto sapendo il numero di giorni di soggiorno e il piano della camera.
 */ 
 #include <iostream>
