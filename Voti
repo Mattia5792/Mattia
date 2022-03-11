@@ -1,0 +1,31 @@
+/*
+Scrivere un programma che riceve in input un numero intero  e stampa “pari” se  ∈ {0,2,4}, “dispari” se  ∈ {1,3,5}, altrimenti “altro”.
+*/ 
+#include <iostream>
+
+using namespace std;
+
+char voto;
+
+int main()
+{
+	cout << "Inserisci il voto (in lettere maiuscole):";
+	cin >> voto;
+	switch (voto)
+	{
+	case 'A':
+		cout << "Ottimo" << endl;
+		break;
+	case 'B':
+		cout << "Distinto" << endl;
+		break;
+	case 'C':
+		cout << "Discreto" << endl;
+		break;
+	case 'D':
+		cout << "Sufficiente" << endl;
+	case 'E':
+		cout << "Insufficiente" << endl;
+	}
+	system("PAUSE");
+}
