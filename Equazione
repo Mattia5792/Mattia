@@ -1,0 +1,43 @@
+/*
+*Risolvere un equazione di secondo grado del tipo ax2+bx+c=0
+*/
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+double equazione(double a, double b, double c, double &d, double &e)
+{
+	int delta = 0;
+	delta = (b * b) - 4*(a * c);
+	if (delta >= 0)
+	{
+		delta = sqrt(delta);
+		d = ((-b) + (delta)) / (a * 2);
+		e = ((-b) - (delta)) / (a * 2);
+		cout << "I risultati sono " << d << " e " << e << endl;
+		return d, e;
+	}
+	if (delta < 0)
+	{
+		cout << "L'equazione e' impossibile perche' il delta e' negativo" << endl;
+		return delta;
+	}
+}
+
+int main()
+{
+	double a;
+	double b;
+	double c;
+	double x1;
+	double x2;
+
+	cout << "Inserisci a:";
+	cin >> a;
+	cout << "Inserisci b:";
+	cin >> b;
+	cout << "Inserisci c:";
+	cin >> c;
+	equazione(a, b, c, x1, x2);
+}
